@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>KeyVeil Policy Reference</title>
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/static/style.css?v=0.2.0" />
+  </head>
+  <body data-status="ready">
+    <div class="app-shell">
+      <header class="top-bar">
+        <div class="brand-block">
+          <span class="brand-mark" aria-hidden="true">KV</span>
+          <div>
+            <h1>KeyVeil</h1>
+            <p>Agent payment policy reference</p>
+          </div>
+        </div>
+        <div class="environment" aria-label="Runtime boundary">
+          <span>REFERENCE</span>
+          <span>SYNTHETIC</span>
+          <span>NO SIGNER</span>
+          <span>NO FUNDS</span>
+        </div>
+        <div class="connection-state"><span aria-hidden="true"></span>LOCAL API</div>
+      </header>
+
+      <div class="workspace">
+        <aside class="scenario-pane" aria-label="Policy scenario catalog">
+          <section class="scenario-catalog">
+            <div class="section-heading">
+              <h2>Policy scenarios</h2>
+              <span id="scenario-count">0</span>
+            </div>
+            <ul id="scenario-list" class="scenario-list" role="listbox"></ul>
+          </section>
+
+          <section class="session-boundary" aria-labelledby="session-boundary-title">
+            <h2 id="session-boundary-title">Session boundary</h2>
+            <dl>
+              <div><dt>ACTIVE SCENARIO</dt><dd id="meta-scenario">-</dd></div>
+              <div><dt>MAX PER TX</dt><dd id="meta-cap">-</dd></div>
+              <div><dt>DAILY BUDGET</dt><dd id="meta-daily">-</dd></div>
+              <div><dt>APPROVAL AT</dt><dd id="meta-approval">-</dd></div>
+              <div><dt>ALLOWED TOKEN</dt><dd id="meta-token">-</dd></div>
+            </dl>
+          </section>
+        </aside>
+
+        <main class="main-area">
+          <div class="mobile-scenario-field">
+            <label for="scenario-select">Policy scenario</label>
+            <select id="scenario-select"></select>
+          </div>
+
+          <section class="decision-section" aria-labelledby="decision-title">
+            <div class="decision-heading">
+              <div>
+                <p class="eyebrow">POLICY DECISION</p>
+                <h2 id="decision-title">Authorization preview</h2>
+              </div>
+              <span id="decision-mode">SYNTHETIC REFERENCE</span>
+            </div>
+
+            <div class="decision-grid">
+              <div class="decision-copy">
+                <div id="status-live" class="status-live" aria-live="polite">
+                  <p id="status-word" class="status-word">READY</p>
+                  <p id="status-detail" class="status-detail">No policy decision yet</p>
+                </div>
+
+                <dl class="intent-grid" aria-label="Current intent and decision metadata">
+                  <div><dt>AMOUNT</dt><dd id="intent-amount">-</dd></div>
+                  <div><dt>RECIPIENT</dt><dd id="intent-recipient">-</dd></div>
+                  <div><dt>INTENT</dt><dd id="intent-id">-</dd></div>
+                  <div><dt>BUDGET RESERVATION</dt><dd id="reservation-id">-</dd></div>
+                </dl>
+
+                <div class="action-row">
+                  <button type="button" id="simulate-btn" class="primary-action">SIMULATE</button>
+                  <button type="button" id="reset-btn" class="secondary-action">RESET</button>
+                </div>
+              </div>
+
+              <div class="visual-shell" aria-label="Deterministic receipt visualization">
+                <canvas id="core-canvas" width="720" height="560"></canvas>
+                <p>RECEIPT VISUAL</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="evidence-grid" aria-label="Decision evidence">
+            <div class="evidence-panel">
+              <div class="section-heading">
+                <h2>Decision trace</h2>
+                <span id="trace-count">0 STEPS</span>
+              </div>
+              <ol id="decision-trace" class="decision-trace"></ol>
+            </div>
+            <div class="evidence-panel">
+              <div class="section-heading">
+                <h2>Receipt v1</h2>
+                <span id="hash-state">NOT ISSUED</span>
+              </div>
+              <pre id="receipt-json" class="receipt-json">-</pre>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="/static/visual.js?v=0.2.0"></script>
+    <script src="/static/app.js?v=0.2.0"></script>
+  </body>
+</html>

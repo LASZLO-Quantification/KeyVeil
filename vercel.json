@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "pip install --upgrade pip setuptools wheel && pip install '.[demo]'",
+  "rewrites": [{ "source": "/(.*)", "destination": "/api/index" }]
+}
